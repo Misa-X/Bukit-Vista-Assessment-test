@@ -1,77 +1,88 @@
+const db = require('../models') 
+const axios = require('axios');
+const apikey = 'f3203d48'
 
 // create main Model
-const Movie = db.Movies
+const Movie = db.movies
 
-// main work
+const MoviesFromApi = []
 
-// 1. create Movie
 
+// search movies by title from API and insert into user's fav movies database 
+const getMovieByTitleFromApi = (req, res, next) => {
+    axios.get(`http://www.omdbapi.com/?t=${req.params.title}&apikey=${apikey}`)
+        .then(res => {
+            console.log('Cookies: ', req.cookies)
+            console.log(res.data)
+        
+           let info = {
+            id: res.data.imdbID,
+            title: res.data.Title,
+            posterUrl: res.data.Poster,
+            user_id: 1,
+        }
+        const movie =  Movie.create(info)
+
+        })
+        .then(movie => res.status(200).send(movie))
+        .catch(next)
+};
+
+
+// search movie in the database
+const getMovieByTitle = async(req, res) =>{
+    let movies = await Movie.findOne({where: { title: req.params.title }})
+   
+    res.set('Content-Type', 'application/json')
+    res.status(200).send(movies)
+    console.log(movies)
+}
+
+
+// insert movie to database 
 const addMovie = async (req, res) => {
 
+    console.log(req.body)
     let info = {
-        image: req.file.path,
-        title: req.body.id,
-        price: req.body.title,
-        description: req.body.user_id,
+        id: req.body.id,
+        title: req.body.title,
+        user_id: req.body.user_id,
     }
 
-    const Movie = await Movie.create(info)
-    res.status(200).send(Movie)
-    console.log(Movie)
+   const movie = await Movie.create(info)
+   res.status(200).send(movie)
+   console.log(movie)
 
 }
 
 
-
-// 2. get all Movies
+// get all favorite movies
 
 const getAllMovies = async (req, res) => {
 
-    let Movies = await Movie.findAll({})
-    res.status(200).send(Movies)
-
-}
-
-// 3. get single Movie
-
-const getOneMovie = async (req, res) => {
-
-    let id = req.params.id
-    let Movie = await Movie.findOne({ where: { id: id }})
-    res.status(200).send(Movie)
-
-}
-
-// 4. update Movie
-
-const updateMovie = async (req, res) => {
-
-    let id = req.params.id
-
-    const Movie = await Movie.update(req.body, { where: { id: id }})
-
-    res.status(200).send(Movie)
+    let movies = await Movie.findAll({})
    
+    res.set('Content-Type', 'application/json')
+    res.cookies
+    res.status(200).send(movies)
+    console.log(movies)
 
 }
 
-// 5. delete Movie by id
-
-const deleteMovie = async (req, res) => {
+// get all fav movies from a specific user (':id' is the id of the user)
+const getFavoriteOneMovie = async (req, res) => {
 
     let id = req.params.id
+    let movie = await Movie.findAll({ where: { user_id: id }})
+    res.status(200).send(movie)
     
-    await Movie.destroy({ where: { id: id }} )
-
-    res.status(200).send('Movie is deleted !')
 
 }
 
 module.exports = {
     addMovie,
     getAllMovies,
-    getOneMovie,
-    updateMovie,
-    deleteMovie
-    
+    getFavoriteOneMovie,
+    getMovieByTitleFromApi,
+    getMovieByTitle    
 }

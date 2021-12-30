@@ -9,9 +9,9 @@ const FavoriteMovies = db.favorite_movies
 const addUser = async (req, res) => {
 
     let info = {
-        image: req.file.user_id,
-        title: req.body.name,
-        price: req.body.password,
+        user_id: req.body.user_id,
+        name: req.body.name,
+        password: req.body.password,
     }
 
     const user = await Users.create(info)

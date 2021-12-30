@@ -1,10 +1,15 @@
 module.exports ={
-    host: 'DESKTOP-R13MHLB',
-    user: '',
-    password: '',
-    db: 'nodejs_api_db',
+    HOST: 'localhost',
+    USER: 'root',
+    PASSWORD: '',
+    DB: 'nodejs_api_db_new',
     dialect: 'mysql',
 
-    
+    pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+      }
 
 }

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const Movie = sequelize.define('favoriteMovie', {
+    const Movie = sequelize.define('movie', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -9,18 +9,14 @@ module.exports = (sequelize, DataTypes) => {
         title: {
             type: DataTypes.STRING
         },
-        password: {
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        posterUrl: {
             type: DataTypes.STRING
         }
     })
 
-    FavoriteMovies.associate = models => {
-        FavoriteMovies.belongsTo(models.Users, {
-            foreignKey: {
-                allowNull: false
-            }
-        })
-    }
-
-    return FavoriteMovies
+    return Movie
 }
