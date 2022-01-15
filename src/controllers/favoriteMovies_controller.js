@@ -39,7 +39,7 @@ const getMovieByTitle = async(req, res) =>{
 }
 
 
-// insert movie to database 
+// insert movie into database 
 const addMovie = async (req, res) => {
 
     console.log(req.body)
