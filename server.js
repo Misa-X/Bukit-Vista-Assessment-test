@@ -7,9 +7,9 @@ var session = require('express-session')
 const app = express();
 app.use(cookieParser())
 
-
+//http://www.omdbapi.com/?i=tt3896198&apikey=f3203d48
 var corsOptions = {
-  origin: 'http://www.omdbapi.com/?i=tt3896198&apikey=f3203d48'
+  origin: 'http://localhost:4200'
 }
 
 

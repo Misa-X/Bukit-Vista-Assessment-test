@@ -1,1 +1,24 @@
-<p>fav-movies works!</p>
+<!-- <p *ngFor="let movies of favMovies">
+fav-movies works!
+</p> -->
+
+
+<h1>Favorite Movies</h1>
+
+<div class="container">
+  <ng-container *ngFor="let movie of favMovies">
+    <h2>{{movie | json}}</h2>
+  </ng-container>
+</div>
+
+
+
+
+
+
+
+<!-- <div *ngFor="let e of fmovies;">
+
+</div> -->
+
+

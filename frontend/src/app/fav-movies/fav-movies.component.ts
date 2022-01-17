@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FavMovieService } from '../services/fav-movie.service';
 
 @Component({
   selector: 'app-fav-movies',
@@ -7,9 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavMoviesComponent implements OnInit {
 
-  constructor() { }
+  favMovies: any;
+  fmovies=[];
+
+  constructor(private favMovieService: FavMovieService) { }
+
+  // ngOnInit(): void {
+  // }
+
+  // ngOnInit() {
+  //   this.favMovieService.getAllMovies().subscribe(data => {
+  //     this.favMovies = data;
+  //     console.log(data);
+  //   })
+  // }
+
 
   ngOnInit(): void {
+    this.favMovieService.getAllMovies().subscribe(Response => {
+
+      console.log(Response)
+      this.favMovies=Response;
+      this.fmovies=this.favMovies.list;
+    });
+
+
+
   }
 
 }

@@ -1,1 +1,180 @@
-<p>movies works!</p>
+
+<div class="container">
+  <br/>
+<div class="row justify-content-center">
+                      <div class="col-12 col-md-10 col-lg-8">
+                          <form class="card card-sm">
+                              <div class="card-body row no-gutters align-items-center">
+                                  <div class="col-auto">
+                                      <i class="fas fa-search h4 text-body"></i>
+                                  </div>
+                                  <!--end of col-->
+                                  <div class="col">
+                                      <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
+                                  </div>
+                                  <!--end of col-->
+                                  <div class="col-auto">
+                                      <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                  </div>
+                                  <!--end of col-->
+                              </div>
+                          </form>
+                      </div>
+                      <!--end of col-->
+                  </div>
+</div>
+
+<h1>The input element</h1>
+
+<form action="">
+  <label for="search">Search:</label>
+  <input type="text" [(ngModel)]= "titlefromService" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"><br><br>
+  <button (click)= getMovies()> submit</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>movies works!</p>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Movie Database Example</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <form class="navbar-form">
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search" (keyup.enter)="refresh($event)">
+                      </div>
+                  </form>
+              </li>
+              <li><a style="cursor: pointer" (click)="">Add Movie</a></li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">Movies</div>
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Title</th>
+                          <th>Genre</th>
+                          <th>Digital Copy</th>
+                          <th>Blu-Ray</th>
+                          <th>DVD</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let movie of movies">
+                          <td>{{ movie.name }}</td>
+                          <td>{{ movie.genre }}</td>
+                          <td>{{ movie.formats.digital || false }}</td>
+                          <td>{{ movie.formats.bluray || false }}</td>
+                          <td>{{ movie.formats.dvd || false }}</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div> -->
+
+
+
+
+<!-- <div class="top-wrapper">
+
+  <div class="container">
+
+  <div class="slogan">
+    <h1>Find Your Dream House</h1>
+  </div>
+
+  </div>
+
+
+</div> -->
+
+
+<!--
+<div class="container">
+
+    <div class="wrapper">
+        <div class="s002">
+            <form>
+              <fieldset>
+                <legend>SEARCH ACCOMMODATION</legend>
+              </fieldset>
+              <div class="inner-form">
+                <div class="input-field first-wrap">
+                  <div class="icon-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                    </svg>
+                  </div>
+                  <input id="search" type="text" placeholder="Number of rooms" />
+                </div>
+                <div class="input-field second-wrap">
+                    <div class="icon-wrap">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                      </svg>
+                    </div>
+                    <input id="search" type="text" placeholder=" $ Price Range " />
+                  </div>
+                  <div class="input-field third-wrap">
+                    <div class="icon-wrap">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                      </svg>
+                    </div>
+                    <input id="search" type="text" placeholder="Location?" />
+                  </div>
+                  <div class="input-field fourth-wrap">
+                    <div class="icon-wrap">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                      </svg>
+                    </div>
+                    <input id="search" type="text" placeholder=" Room Size " />
+                  </div>
+                <div class="input-field fifth-wrap">
+                  <button class="btn-search" type="button">SEARCH</button>
+                </div>
+              </div>
+            </form>
+          </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="heading">
+    <h1>Featured Listings</h1>
+    <hr size="1" width="45%" color="#A9A9A9">
+  </div>
+
+</div> -->
+
