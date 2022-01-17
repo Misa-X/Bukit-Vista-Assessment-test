@@ -26,6 +26,7 @@ app.get('/movies/imdb/:title',function(req, res){
   res.send("updated"),
   movieController.getMovieByTitleFromApi
 } )
+app.get('/movies/:title', movieController.getMovieByTitle)
 const router = require('./src/routes/movieRouter.js')
 app.use('/api', router)
 app.use(express.json());
