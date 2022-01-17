@@ -6,6 +6,7 @@ var session = require('express-session')
 
 const app = express();
 app.use(cookieParser())
+app.use(express.static(__dirname + "/public"));
 
 //http://www.omdbapi.com/?i=tt3896198&apikey=f3203d48
 var corsOptions = {
@@ -17,7 +18,9 @@ var corsOptions = {
 app.use(cors(corsOptions))
 app.use(express.json())  //recognize incoming req as json obj
 app.use(express.urlencoded({extended: true}))
-
+app.get('/', function(req, res) {
+  res.send('hello world');
+});
 
 
 const router = require('./src/routes/movieRouter.js')
