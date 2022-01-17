@@ -1,4 +1,4 @@
-const movieController = require("./src/controllers/favoriteMovies_controller")
+const movieController = require("./src/controllers/favoriteMovies_controller.js")
 const express = require('express'); // load express
 const cors = require('cors');
 const cookieParser = require('cookie-parser')
