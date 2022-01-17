@@ -21,8 +21,8 @@ app.use(express.urlencoded({extended: true}))
 app.get('/', function(req, res) {
   res.send('hello world');
 });
-app.get('/moviesfromdb', movieController.getAllMovies)
-app.get('/movies/imdb/:title', movieController.getMovieByTitleFromApi)
+//app.get('/moviesfromdb', movieController.getAllMovies)
+//app.get('/movies/imdb/:title', movieController.getMovieByTitleFromApi)
 const router = require('./src/routes/movieRouter.js')
 app.use('/api', router)
 app.use(express.json());
