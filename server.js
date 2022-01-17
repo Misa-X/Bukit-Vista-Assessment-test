@@ -22,7 +22,10 @@ app.get('/', function(req, res) {
   res.send('hello world');
 });
 app.get('/moviesfromdb', movieController.getAllMovies)
-app.get('/movies/imdb/:title', movieController.getMovieByTitleFromApi)
+app.get('/movies/imdb/:title',function(req, res){
+  res.send("updated"),
+  movieController.getMovieByTitleFromApi
+} )
 const router = require('./src/routes/movieRouter.js')
 app.use('/api', router)
 app.use(express.json());
