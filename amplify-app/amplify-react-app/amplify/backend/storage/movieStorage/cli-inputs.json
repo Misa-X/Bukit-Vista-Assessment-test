@@ -1,0 +1,13 @@
+{
+  "resourceName": "movieStorage",
+  "policyUUID": "dbb00689",
+  "bucketName": "moviestorage",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
