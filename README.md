@@ -1,7 +1,11 @@
-# Bukit-Vista-Assessment-test
+# COMP6573001-2021 Final Project
 
-PROGRAMMER TEST- NODEJS BACKEND 
-  
+FAVORITE MOVIES APPLICATION
+
+GROUP MEMBERS: Misa Xirinda & Faith Chufo
+
+
+-------------------------------------------------------------------------------  
 1: To run the app first download express from npmjs.com 
 
 2: Run ``` npm init --yes ``` in the terminal to start the nodejs project
